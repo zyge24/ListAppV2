@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +21,8 @@ public class AddItemFragment extends Fragment {
     private Storage storage;
 
     private Button btnAddItem;
+
+    private Switch switchImportant;
 
 
     @Override
@@ -36,11 +39,12 @@ public class AddItemFragment extends Fragment {
         name = view.findViewById(R.id.txtAddItem);
         note = view.findViewById(R.id.txtAddNote);
         btnAddItem = view.findViewById(R.id.btnAddItemInfo);
+        switchImportant = view.findViewById(R.id.switchImportant);
         storage = Storage.getInstance();
         btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                storage.addItem(new Item(name.getText().toString(), note.getText().toString()));
+                storage.addItem(new Item(name.getText().toString(), note.getText().toString(), switchImportant.isChecked()));
             }
         });
         return view;

@@ -1,10 +1,12 @@
 package com.example.listappv2;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +28,7 @@ public class ItemViewAdapter extends RecyclerView.Adapter<ItemViewHolder> {
     }
     public void onBindViewHolder(ItemViewHolder holder, int position){
         holder.name.setText(items.get(position).getName());
+        if (items.get(position).getImportant()){holder.name.setBackgroundColor(Color.RED);}
         holder.note.setText(items.get(position).getNote());
         holder.editName.setText(items.get(position).getName());
         holder.editNote.setText(items.get(position).getNote());

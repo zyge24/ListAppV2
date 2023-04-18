@@ -1,14 +1,16 @@
 package com.example.listappv2;
 
 public class Item {
+    boolean important;
     String name;
     String note;
 
     long timestamp;
 
-    public Item(String name, String note) {
+    public Item(String name, String note, boolean important) {
         this.name = name;
         this.note = note;
+        this.important = important;
         this.timestamp = System.currentTimeMillis();
     }
 
@@ -30,5 +32,8 @@ public class Item {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public boolean getImportant() {return important;
     }
 }
